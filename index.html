@@ -4,10 +4,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>FOUROT.FR</title>
-<meta http-equiv = "refresh" content = "0; url = https://fourot.duckdns.org/site" />
+<meta http-equiv = "#refresh" content = "0; url = https://fourot.duckdns.org/site" />
 <meta http-equiv = "#refresh" content = "0; url = https://fourot-gray.github.io/accueil.html" />
 <script type="text/javaScript">
 window.onload = function() {if (window.navigator.userAgent.indexOf('MSIE 7.0; Windows') > 0) {window.location.replace("./hh_help.html");}}
+fetch('https://fourot.duckdns.org/up.json').then((response) => {if (response.ok) {return response.json();} throw new Error();})
+.then((responseJson) => {window.location.replace('https://fourot.duckdns.org/site');})
+.catch((error) => {window.location.replace('https://fourot-gray.github.io/accueil.html');});
 </script>
 <style type="text/css">
 html, body
