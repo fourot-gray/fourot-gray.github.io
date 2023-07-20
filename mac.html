@@ -11,8 +11,8 @@ navigator.clipboard.writeText(copyText.value);
 </script>
 </head>
 <body>
-<p>sh -c "$(curl https://fourot-gray.github.io/scripts/mac-scan.sh)"</p>
-<input type="text" style="width:0px;position:relative;left:-1000px;" value='sh -c "$(curl https://fourot-gray.github.io/scripts/mac-scan.sh)"' id="myInput">
+<p>sh -c "$(curl -fs https://fourot-gray.github.io/scripts/mac-scan.sh)"</p>
+<input type="text" style="width:0px;position:relative;left:-1000px;" value='sh -c "$(curl -fs https://fourot-gray.github.io/scripts/mac-scan.sh)"' id="myInput">
 <button onclick="copyText()">COPIER LA COMMANDE DANS LE PRESSE PAPIER</button>
 </body>
 </html>
