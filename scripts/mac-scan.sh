@@ -1,14 +1,19 @@
 #!/bin/sh
 clear
 
-echo =========================
-echo MACOS SCAN FOLDER CREATOR
-echo =========================
+echo =================================
+echo \*\*\* MACOS SCAN FOLDER CREATOR \*\*\*
+echo =================================
+echo Description: Script de création
+echo et partage d\'un dossier de scan.
 echo
+echo APPUYEZ SUR \'ENTER\' POUR EXECUTER
+read
 
 s_user=scan
 s_folder=/Users/Shared/SCAN
 
+echo ---
 echo Création du dossier \'$s_folder\'...
 mkdir -p $s_folder
 
@@ -27,7 +32,7 @@ defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.pli
 pwpolicy -u $s_user -sethashtypes SMB-NT on 1>/dev/null 2>/dev/null
 
 echo Partage du dossier...
-sharing -a $s_folder
+sharing -a $s_folder -S SCAN -R 0 -E 0 1>/dev/null 2>/dev/null
 
 echo Application des droits et ACLs sur le dossier...
 chmod ugo+rwx $s_folder
@@ -38,3 +43,26 @@ cd /Users
 for user in * ; do
    ln -s $s_folder /Users/$user/Desktop/Scan 2>/dev/null
 done
+rm $s_folder/SCAN
+
+echo ---
+echo
+echo Exécution terminée.
+echo
+echo
+
+echo =[INFOS INTERFACE DU MULTIFONCTION]======
+ip=`ifconfig | grep "inet " | grep -Fv "127." | awk '{print $2}'`
+f_path=\\\\\\\\`hostname`\\SCAN
+echo $f_path | pbcopy
+echo Répertoire partagé \(copié dans presse-papiers\):
+echo $f_path ou \\\\\\\\$ip\\SCAN
+echo Utilisateur et pass \(respecter la casse\):
+echo \'$s_user\'
+echo =========================================
+echo
+echo UNE FOIS LES INFORMATIONS ENREGISTREES DANS
+echo LE MULTIFONCTION, ENREGISTREZ VOTRE TRAVAIL
+echo ET APPUYEZ SUR \'ENTER\' POUR REDEMARRER.
+read
+reboot
