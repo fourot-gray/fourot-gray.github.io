@@ -13,8 +13,6 @@ read
 s_user=scan
 s_folder=/Users/Shared/SCAN
 
-echo utilisateur: '$s_user'
-
 echo ---
 echo Création du dossier \'$s_folder\'...
 mkdir -p $s_folder
@@ -46,7 +44,7 @@ for user in * ; do
    ln -s $s_folder /Users/$user/Desktop/Scan 2>/dev/null
 done
 rm $s_folder/SCAN 2>/dev/null
-
+dscl . passwd /Users/$s_user '$s_user'
 echo ---
 echo
 echo Exécution terminée.
