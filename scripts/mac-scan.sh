@@ -54,7 +54,8 @@ echo
 
 echo =[INFOS INTERFACE DU MULTIFONCTION]======
 ip=`ifconfig | grep "inet " | grep -Fv "127." | awk '{print $2}'`
-f_path=\\\\\\\\`hostname`\\SCAN
+netbios_name=`scutil --get LocalHostName`
+f_path=\\\\\\\\$netbios_name\\SCAN
 echo $f_path | pbcopy
 echo Répertoire partagé \(copié dans presse-papiers\):
 echo $f_path ou \\\\\\\\$ip\\SCAN
