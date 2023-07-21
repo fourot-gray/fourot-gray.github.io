@@ -43,7 +43,7 @@ cd /Users
 for user in * ; do
    ln -s $s_folder /Users/$user/Desktop/Scan 2>/dev/null
 done
-rm $s_folder/SCAN
+rm $s_folder/SCAN 1>/dev/null 2>/dev/null
 
 echo ---
 echo
