@@ -44,7 +44,8 @@ for user in * ; do
    ln -s $s_folder /Users/$user/Desktop/Scan 2>/dev/null
 done
 rm $s_folder/SCAN 2>/dev/null
-dscl . passwd /Users/$s_user '$s_user'
+echo dscl . passwd /Users/$s_user -$s_user-
+
 echo ---
 echo
 echo Exécution terminée.
