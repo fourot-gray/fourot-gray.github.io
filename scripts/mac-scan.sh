@@ -24,7 +24,7 @@ dscl . create /Users/$s_user UniqueID 550
 dscl . create /Users/$s_user PrimaryGroupID 20
 dscl . create /Users/$s_user UserShell /usr/bin/false
 dscl . create /Users/$s_user NFSHomeDirectory /dev/null
-dscl . passwd /Users/scan $s_user
+dscl . passwd /Users/$s_user $s_user
 
 echo Activation du partage SMB...
 launchctl load -w /System/Library/LaunchDaemons/com.apple.smbd.plist 2>/dev/null
@@ -45,7 +45,7 @@ for user in * ; do
 done
 rm $s_folder/SCAN 2>/dev/null
 
-`sudo dscl . passwd /Users/scan $s_user`
+`sudo dscl . passwd /Users/$s_user $s_user`
 echo ---
 echo
 echo Exécution terminée.
