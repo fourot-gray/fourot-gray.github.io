@@ -13,6 +13,8 @@ read
 s_user=scan
 s_folder=/Users/Shared/SCAN
 
+echo utilisateur: '$s_user'
+
 echo ---
 echo Création du dossier \'$s_folder\'...
 mkdir -p $s_folder
