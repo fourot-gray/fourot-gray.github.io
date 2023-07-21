@@ -32,7 +32,7 @@ defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server.pli
 pwpolicy -u $s_user -sethashtypes SMB-NT on 1>/dev/null 2>/dev/null
 
 echo Partage du dossier...
-sharing -a $s_folder -S SCAN -R 0 -E 0 1>/dev/null 2>/dev/null
+sharing -a $s_folder -S scan -R 0 -E 0 1>/dev/null 2>/dev/null
 
 echo Application des droits et ACLs sur le dossier...
 chmod ugo+rwx $s_folder
@@ -43,7 +43,7 @@ cd /Users
 for user in * ; do
    ln -s $s_folder /Users/$user/Desktop/Scan 2>/dev/null
 done
-rm $s_folder/SCAN 2>/dev/null
+rm $s_folder/scan 2>/dev/null
 
 `sudo dscl . passwd /Users/$s_user $s_user`
 echo ---
