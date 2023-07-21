@@ -24,7 +24,7 @@ dscl . create /Users/$s_user UniqueID 550
 dscl . create /Users/$s_user PrimaryGroupID 20
 dscl . create /Users/$s_user UserShell /usr/bin/false
 dscl . create /Users/$s_user NFSHomeDirectory /dev/null
-read -t 5
+read -t 15
 dscl . passwd /Users/scan 'scaan'
 
 echo Activation du partage SMB...
