@@ -11,7 +11,7 @@ echo APPUYEZ SUR \'ENTER\' POUR EXECUTER
 read
 
 s_user=scan
-s_folder=/Users/Shared/SCAN
+s_folder=/Users/Shared/scan
 
 echo ---
 echo Création du dossier \'$s_folder\'...
