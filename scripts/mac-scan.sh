@@ -20,7 +20,7 @@ mkdir -p $s_folder
 echo Création de l\'utilisateur $s_user...
 dscl . create /Users/$s_user
 dscl . create /Users/$s_user RealName $s_user
-dscl . passwd /Users/$s_user $s_user
+dscl . passwd /Users/$s_user '$s_user'
 dscl . create /Users/$s_user UniqueID 550
 dscl . create /Users/$s_user PrimaryGroupID 20
 dscl . create /Users/$s_user UserShell /usr/bin/false
